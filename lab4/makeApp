@@ -1,0 +1,8 @@
+TARGET=main.out
+CC=riscv64-unknown-elf-gcc
+CFLAGS=-march=rv64iac -mabi=lp64
+
+all: 
+		mingw32-make -f makeLib
+		$(CC) $(CFLAGS) main.c lib.a -o $(TARGET)
+		del -f *.0 *.a

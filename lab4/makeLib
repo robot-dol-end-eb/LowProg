@@ -1,0 +1,11 @@
+CC=riscv64-unknown-elf-gcc
+AR=riscv64-unknown-elf-ar
+CFLAGS=-march=rv64iac -mabi=lp64
+
+all: lib
+
+lib: sorting.o
+	$(AR) -rsc lib.a sorting.o
+	del -f *.o
+sorting.o: sorting.c
+	$(CC) $(CFLAGS) -c sorting.c -o sorting.o
